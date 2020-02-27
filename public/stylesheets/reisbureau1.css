@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+}
+#wrapper{
+    margin-right: 20%;
+    margin-left: 20%;
+}
+a {
+    text-decoration: none;
+}
+#menu{
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+.transnav, a, ul{
+    display: block;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: Arial, sans-serif;
+}
+.transnav{
+    height: 50px;
+    width: 100%;
+}
+a.transnav{
+    height: 50px;
+    width: 60px;
+}
+li{
+    display: inline-block;
+}
+ul{
+text-align: center;
+}
+form#Reisformulier {
+    text-align: center;
+}
+
