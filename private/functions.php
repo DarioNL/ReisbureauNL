@@ -1,20 +1,19 @@
 <?php
 function search($continent, $land, $stad){
     $dbc = mysqli_connect('localhost', 'ReisbureauNL', 'Reizen', 'locatie') or die('Error connecting.');
+    mysqli_set_charset($dbc, "utf8");
     $query = "SELECT * FROM reis_view WHERE stadnaam = '$stad' OR landnaam = '$land' OR continentennaam = '$continent'";
     $result = mysqli_query($dbc, $query) or die ("Error querying.");
     while($row = $result->fetch_array()) {
         echo "<tr>";
         echo "<td>";
+        echo ucwords($row["continentennaam"]);
+        echo "</td>";
+        echo "<td>";
+        echo ucwords($row["landnaam"]);
+        echo "</td>";
+        echo "<td>";
         echo ucwords($row["stadnaam"]);
-        echo "</td>";
-        echo "<td>";
-        echo ucwords( $row["landnaam"]);
-        echo "</td>";
-        echo "<td>";
-        $continentnaam = $row['continentennaam'];
-        echo htmlspecialchars($continentnaam);
-//        echo htmlentities(ucwords( $row["continentennaam"]));
         echo "<br>";
         echo "</td>";
         echo "<td>";

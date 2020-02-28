@@ -10,19 +10,19 @@ require '../private/functions.php';
 
 
 if (isset($_GET['continent'])) {
-    $search_continent = $_GET['continent'];
+    $search_continent = urldecode($_GET['continent']);
     $lowerd_Search_continent = strtolower($search_continent);
-    $_GET['continent'] = $lowerd_Search_continent;
-    echo "continent zit er in";
+    $_GET['continent'] = $search_continent;
+    echo $search_continent." continent zit er in";
 }
 if (isset($_GET['land'])){
-    $search_landen = $_GET['land'];
+    $search_landen = urldecode($_GET['land']);
     $lowerd_Search_landen = strtolower($search_landen);
     $_GET['land'] = $lowerd_Search_landen;
     echo "land zit er in";
 }
 if (isset($_GET['stad'])){
-    $search_steden = $_GET['stad'];
+    $search_steden = urldecode($_GET['stad']);
     $lowerd_Search_steden = strtolower($search_steden);
     $_GET['stad'] = $lowerd_Search_steden;
 }

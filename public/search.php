@@ -26,7 +26,7 @@ $continenten = $_GET['continent'];
 print_r($_GET);
 echo "azië";
 
-exit();
+
 ?>
 
 <body>
@@ -80,7 +80,12 @@ exit();
         </tr>
         <?php
         if (!empty($stad)){
-        search($continenten, $landen, $stad);
+        search(0,0, $stad);
+        }
+        if (!empty($landen)){
+            search(0, $landen, $stad);
+        }else{
+            search($continenten,0,0);
         }
         ?>
         </tbody>
