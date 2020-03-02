@@ -5,6 +5,7 @@ function search($continent, $land, $stad){
     $query = "SELECT * FROM reis_view WHERE stadnaam = '$stad' OR landnaam = '$land' OR continentennaam = '$continent'";
     $result = mysqli_query($dbc, $query) or die ("Error querying.");
     while($row = $result->fetch_array()) {
+        print_r($row);
         echo "<tr>";
         echo "<td>";
         echo ucwords($row["continentennaam"]);
@@ -19,6 +20,18 @@ function search($continent, $land, $stad){
         echo "<td>";
         echo "".$row["prijs"];
         echo "</td>";
+    }
+}
+
+function zoek_lijst_maken($type){
+    $dbc = mysqli_connect('localhost', 'ReisbureauNL', 'Reizen', 'locatie') or die('Error connecting.');
+    mysqli_set_charset($dbc, "utf8");
+    $query = "SELECT $type FROM reis_view";
+    $result = mysqli_query($dbc, $query) or die ("Error querying.");
+    while($row = $result->fetch_array()) {
+        echo "<option value=";
+        echo ucwords($row[$type]);
+        echo ">";
     }
 }
 

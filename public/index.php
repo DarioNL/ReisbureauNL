@@ -64,13 +64,22 @@ if (!empty($_GET['continent'] && $_GET['land'] && $_GET['stad'])){
 <div id="reismenu">
     <form action="index.php " id="Reisformulier" method="get">
         <label for="continent">
-            <input type="text" id="continent" name="continent" placeholder="continent">
+            <input list="continenten" name="continent" id="continent" placeholder="continent" autocomplete="off">
+            <datalist id="continenten">
+                <?php zoek_lijst_maken("continentennaam"); ?>
+            </datalist>
         </label>
         <label for="land">
-            <input type="text" id="land" name="land" placeholder="land">
+            <input list="landen" id="land" name="land" placeholder="land" autocomplete="off">
+            <datalist id="landen">
+                <?php zoek_lijst_maken("landnaam"); ?>
+            </datalist>
         </label>
         <label for="stad">
-            <input type="text" id="stad" name="stad" placeholder="stad">
+            <input list="steden" id="stad" name="stad" placeholder="stad" autocomplete="off">
+            <datalist id="steden">
+                <?php zoek_lijst_maken("stadnaam"); ?>
+            </datalist>
         </label>
         <label for="submit">
             <input type="submit" value="zoeken">
