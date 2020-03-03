@@ -29,6 +29,8 @@ if (isset($_GET['stad'])){
 
 print_r($_GET);
 
+$_GET['continent'];
+
 if (!empty($_GET['continent'] && $_GET['land'] && $_GET['stad'])){
     header("location: search.php?continent=".$_GET['continent']."&land=".$_GET['land']."&stad=".$_GET['stad']."");
 }

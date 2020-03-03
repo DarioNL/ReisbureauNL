@@ -4,8 +4,8 @@ function search($continent, $land, $stad){
     mysqli_set_charset($dbc, "utf8");
     $query = "SELECT * FROM reis_view WHERE stadnaam = '$stad' OR landnaam = '$land' OR continentennaam = '$continent'";
     $result = mysqli_query($dbc, $query) or die ("Error querying.");
-    while($row = $result->fetch_array()) {
-        print_r($row);
+    print_r($result);
+    while($row = $result->fetch_array(MYSQLI_ASSOC)) {
         echo "<tr>";
         echo "<td>";
         echo ucwords($row["continentennaam"]);
@@ -28,7 +28,7 @@ function zoek_lijst_maken($type){
     mysqli_set_charset($dbc, "utf8");
     $query = "SELECT $type FROM reis_view";
     $result = mysqli_query($dbc, $query) or die ("Error querying.");
-    while($row = $result->fetch_array()) {
+    while($row = mysqli_fetch_row($result)) {
         echo "<option value=";
         echo ucwords($row[$type]);
         echo ">";
